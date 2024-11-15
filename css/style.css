@@ -1,3 +1,52 @@
+/* Global Varibales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 8rem;
+}
+
+h3{
+  font-size: 2.5rem;
+}
+
+
+nav {
+  padding: 1rem;
+  display: flex;
+  background-color: rgb(148, 255, 213);
+}
+
+/* hero section */
+.hero-section{
+  color: white;
+}
+
+.hero-section{
+  height: 400px;
+  display: flex;  
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("file:///C:/Users/grzet/OneDrive/Documents/github-projects/Titan-Coffee-Run/img/coffee-background.jpg");
+}
+
+.hero-textbox {
+  margin: auto;
+}
+
+section {
+  text-align: center;
+}
+
 footer {
-  background-color: red;
+  background-color: grey;
+  width: 100%;
+  height: 100px;
 }
