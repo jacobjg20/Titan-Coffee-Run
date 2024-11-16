@@ -1,8 +1,8 @@
 var banner = [
-    ["destination1.com", "placeholder.com/image1.jpg"],
-    ["destination2.com", "placeholder.com/image2.jpg"],
-    ["destination3.com", "placeholder.com/image3.jpg"],
-    ["destination4.com", "placeholder.com/image4.jpg"]
+    ["google.com", "img/coffee1.png"],
+    ["facebook.com", "img/coffee2.png"],
+    ["gmail.com", "img/coffee3.png"],
+    ["myanimelist.net", "img/coffee1.png"]
     ];
     
     function shuffle(a) {
