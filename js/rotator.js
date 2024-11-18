@@ -1,8 +1,8 @@
 var banner = [
-    ["google.com", "img/coffee1.png"],
-    ["facebook.com", "img/coffee2.png"],
-    ["gmail.com", "img/coffee3.png"],
-    ["myanimelist.net", "img/coffee4.png"]
+    ["https://chamberlaincoffee.com/products", "img/coffee1.png"],
+    ["https://www.breville.com/en-us/product/bes870", "img/coffee2.png"],
+    ["https://www.keurig.com/Home-Coffee-Makers", "img/coffee3.png"],
+    ["https://upstatecoffee.com/products", "img/coffee4.png"]
     ];
     
     function shuffle(a) {
