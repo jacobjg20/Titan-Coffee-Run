@@ -19,7 +19,7 @@ function addErrorMessage(id, msg){
 
         // Add the span to the parent
         elem.parentNode.appendChild(span);
-        elem.previousElementSibling.className = "error";
+        // elem.previousElementSibling.className = "error";
     }  
 }
 

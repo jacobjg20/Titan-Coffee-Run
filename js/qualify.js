@@ -69,15 +69,56 @@ function validateForm(e){
     }
 
     //gross income validation
-    if(!(/^\d+$/.test(grossIncome))){
+    if(!(/^[0-9]+$/.test(grossIncome.value))){
         if(!(U.$('grossIncomeError'))){
             addErrorMessage('grossIncome', "Please enter a valid income");
         }
     }else if(U.$('grossIncomeError')){
         removeErrorMessage('grossIncomeError');
     } 
+
+    //social securtiy validation
+    if(!(/^\d{4}(-\d{3})?$/.test(ssn.value))){
+        if(!(U.$('ssnError'))){
+            addErrorMessage('ssn', "Please enter a valid zip code");
+        }
+    }else if(U.$('ssnError')){
+        removeErrorMessage('ssnError');
+    }
+
+    //state validation
+    if(state.value == "selectState"){
+        if(!(U.$('stateError'))){
+            addErrorMessage('state', "Please select a state");
+        }
+    }else if(U.$('stateError')){
+        removeErrorMessage('stateError');
+    }
+
+    //terms and service validation
+    if(!termsAndService.checked){
+        if(!(U.$('termsAndServiceError'))){
+            addErrorMessage('termsAndService', "Please confirm that you agree to the terms and service");
+        }
+    }else if(U.$('termsAndServiceError')){
+        removeErrorMessage('termsAndServiceError');
+    }
+
+    //checking grossIncome requirement
+    if(document.getElementsByClassName('error').length < 1){
+       if(grossIncome.value > 20000){
+        alert('You Qualify for a credit card :)');
+       }else {
+        alert('You do not Qualify for a credit card :(')
+       }
+    }
 }
 
 
+function resetForm(){
+    document.getElementById('theForm').reset();
+    document.querySelectorAll('.error').forEach(e => e.remove());
+}
 
-U.addEvent(U.$('submit'), 'mouseover', validateForm);
+U.addEvent(U.$('apply'), 'click', validateForm);
+U.addEvent(U.$('resetButton'), 'click', resetForm);

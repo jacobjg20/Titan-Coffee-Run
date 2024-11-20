@@ -93,3 +93,14 @@ footer {
   width: 500px;
   justify-content: center;
 }
+
+.error {
+  color: rgb(255, 0, 0);
+}
+
+form {
+  background-color: rgba(255, 255, 255, 0.151);
+  width: 70%;
+  margin: auto;
+  padding: 2rem;
+}
