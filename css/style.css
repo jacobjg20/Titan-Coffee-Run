@@ -87,3 +87,9 @@ footer {
   justify-content: space-around;
   text-align: center;
 }
+
+.row {
+  display: flex;
+  width: 500px;
+  justify-content: center;
+}

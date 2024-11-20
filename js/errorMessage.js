@@ -23,3 +23,7 @@ function addErrorMessage(id, msg){
     }  
 }
 
+function removeErrorMessage(id){
+    document.getElementById(id).remove();
+}
+
