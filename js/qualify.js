@@ -120,5 +120,16 @@ function resetForm(){
     document.querySelectorAll('.error').forEach(e => e.remove());
 }
 
+function createErrorTable(){
+    var fields = [email, remail, fname, lname, city, state, zip, grossIncome, ssn, termsAndService];
+
+    //loop that adds valid data to table
+    if(!U.$(field + 'error')){
+        // U.$(field)
+    }
+    //loop that adds invalid data to table
+}
+
 U.addEvent(U.$('apply'), 'click', validateForm);
 U.addEvent(U.$('resetButton'), 'click', resetForm);
+
