@@ -104,3 +104,24 @@ form {
   margin: auto;
   padding: 2rem;
 }
+
+/* login page */
+
+.resetLink {
+  color: black;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.resetLink a {
+  color: black;
+}
+
+.resetLink a:visited {
+  color: black;
+}
+
+.resetLink a:hover {
+    color: black;
+}
