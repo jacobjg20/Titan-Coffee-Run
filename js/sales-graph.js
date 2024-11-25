@@ -101,13 +101,12 @@ class BarChart {
 
     shrinkBars(){
       var i = 0;
-      var ctx = this.ctx;
 
-      var shrinking = setInterval( () => {
-        
 
+      var shrinking = setInterval( async () => {
+      
         //erase a line
-        ctx.clearRect(0, i, 1000, 1);
+        this.ctx.clearRect(0, 0, 1000, 1000);
 
         //subtracts from bar height form each quarter
         var obj = this.options.data;
@@ -115,20 +114,20 @@ class BarChart {
         for (const key in obj) {
           if(obj[key] > 0){
             obj[key] -= 20;
-            console.log(obj[key]);
-          } 
+          } else if(obj[key] <= 0){
+            obj[key] = 0;
+          }
         }
 
         //redraws the bars with their subtraction
-        this.drawGridLines();
-        this.drawBars();
-
+        this.draw();
+        
         //exit the interval 
         if(i > (this.canvas.height - 50)){
           clearInterval(shrinking);
         }
         i++;
-      }, 4);
+      }, 10);
     }
     
     draw() {
@@ -154,5 +153,6 @@ class BarChart {
 
 window.onload = (event) => {
   myBarchart.draw();
+
   U.addEvent(U.$('resetGraph'), 'click', ()=> myBarchart.shrinkBars());
 };
