@@ -13,8 +13,20 @@ function drawLine(ctx, startX, startY, endX, endY,color){
 function drawBar(ctx, upperLeftCornerX, upperLeftCornerY, width, height,color){
     ctx.save();
     ctx.fillStyle=color;
-    ctx.fillRect(upperLeftCornerX,upperLeftCornerY,width,height);
+    ctx.fillRect(upperLeftCornerX + 20,upperLeftCornerY,width ,height);
     ctx.restore();
+}
+
+function drawVerticalText(text, x, y, fontSize, ctx) {
+
+  ctx.font = `${fontSize}px Arial`;
+
+  for (let i = 0; i < text.length; i++) {
+
+    ctx.fillText(text[i], x, y + (i * fontSize)); 
+
+  }
+
 }
 
 class BarChart {
@@ -38,7 +50,7 @@ class BarChart {
           this.options.padding;
         drawLine(
           this.ctx,
-          0,
+          20,
           gridY,
           this.canvas.width,
           gridY,
@@ -46,9 +58,9 @@ class BarChart {
         );
         drawLine(
           this.ctx,
-          15,
+          50,
           this.options.padding/2,
-          15,
+          50,
           gridY + this.options.padding/2,
           this.options.gridColor
         );
@@ -58,7 +70,7 @@ class BarChart {
         this.ctx.fillStyle = this.options.gridColor;
         this.ctx.textBaseline = "bottom";
         this.ctx.font = "15px ariel";
-        this.ctx.fillText(gridValue, 0, gridY - 2);
+        this.ctx.fillText(gridValue, 20, gridY - 2);
         this.ctx.restore();
         gridValue += this.options.gridScale;
       }
@@ -91,17 +103,18 @@ class BarChart {
     drawText(){
       const canvas = document.getElementById("chartContainer");
       const ctx = canvas.getContext("2d");
-      let width = canvas.width / 4;
-      ctx.font = "2rem Arial";
-      ctx.fillText("Jan-March", 0 , canvas.height);
-      ctx.fillText("April-June", width , canvas.height);
-      ctx.fillText("Jul-Sep", width * 2, canvas.height);
-      ctx.fillText("Oct-Dec", width * 3, canvas.height)
+      let width = (canvas.width-20) / 4;
+      let paddingBetweenBars = 60;
+      ctx.font = "20px Arial";
+      ctx.fillText("Jan-March", paddingBetweenBars + 20, canvas.height - 10);
+      ctx.fillText("April-June", width + paddingBetweenBars + 10, canvas.height - 10);
+      ctx.fillText("Jul-Sep", width * 2 + paddingBetweenBars, canvas.height - 10);
+      ctx.fillText("Oct-Dec", width * 3 + paddingBetweenBars - 24, canvas.height - 10);
+      drawVerticalText("Sales", 0 , (canvas.height / 2), 20, ctx);
     }
 
     shrinkBars(){
       var i = 0;
-
 
       var shrinking = setInterval( async () => {
       
