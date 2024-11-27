@@ -92,6 +92,7 @@ footer {
   display: flex;
   width: 500px;
   justify-content: center;
+  margin: auto;
 }
 
 .error {
@@ -151,4 +152,20 @@ form {
 .product img {
   height: 200px;
   width: 200px;
+}
+
+.center {
+  margin: auto;
+}
+
+/* table display */
+
+#table-display{
+  width: 100%;
+  background-color: rgb(65, 39, 39);
+}
+
+#table{
+  margin: auto;
+  color: white;
 }

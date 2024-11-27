@@ -109,25 +109,85 @@ function validateForm(e){
        if(grossIncome.value > 20000){
         alert('You Qualify for a credit card :)');
        }else {
-        alert('You do not Qualify for a credit card :(')
+        alert('We\'re sorry, you do not qualify for a credit line at this time" :(');
        }
     }
-}
 
+    tableCreate();
+}
 
 function resetForm(){
     document.getElementById('theForm').reset();
     document.querySelectorAll('.error').forEach(e => e.remove());
+    if(U.$('table')){
+        U.$('table').remove();
+    }
 }
 
-function createErrorTable(){
-    var fields = [email, remail, fname, lname, city, state, zip, grossIncome, ssn, termsAndService];
 
-    //loop that adds valid data to table
-    if(!U.$(field + 'error')){
-        // U.$(field)
+function tableCreate() {
+
+    tbl = document.createElement('table');
+    tbl.id = 'table';
+    tbl.style.width = '200px';
+    tbl.style.border = '1px solid white';
+    var email = U.$('email');
+    var remail = U.$('remail');
+    var fname = U.$('fname');
+    var lname = U.$('lname');
+    var city = U.$('city');
+    var state = U.$('state');
+    var zip = U.$('zip');
+    var grossIncome = U.$('grossIncome');
+    var ssn = U.$('ssn');
+    var termsAndService = U.$('termsAndService');
+    var fields = [email, remail, fname, lname, city, state, zip, grossIncome, ssn, termsAndService];
+    var isValid = true;
+
+
+    //removes existing table
+    if(U.$('table')){
+        U.$('table').remove();
     }
-    //loop that adds invalid data to table
+
+    for (let i = 0; i < fields.length; i++) {
+        const tr = tbl.insertRow();
+        for (let j = 0; j < 2; j++) {
+        if (i === fields.length && j === 1) {
+            break;
+        } else if(j === 1){
+            if(U.$(fields[i].id + "Error"))
+            {
+                const td = tr.insertCell();
+                td.appendChild(document.createTextNode('Invalid'));
+                td.style.border = '1px solid white';
+            } else {
+                const td = tr.insertCell();
+                td.appendChild(document.createTextNode('Valid'));
+                td.style.border = '1px solid white';
+            } 
+        } else {
+            const td = tr.insertCell();
+            td.appendChild(document.createTextNode(fields[i].name));
+            td.style.border = '1px solid white';
+            if (i === 1 && j === 1) {
+            }
+        }
+        }
+    }
+
+    //checks if table has any erros
+    for (let i = 0; i < fields.length; i++) {
+        if(U.$(fields[i].id + 'Error')){
+            isValid = false;
+        }
+    }
+    if(isValid) {
+        return;
+    }
+
+    //adds table to the webpage
+    U.$('table-display').appendChild(tbl);
 }
 
 U.addEvent(U.$('apply'), 'click', validateForm);
