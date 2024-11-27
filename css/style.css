@@ -125,3 +125,30 @@ form {
 .resetLink a:hover {
     color: black;
 }
+
+/* Sales Section */
+
+.sales-section{
+  height: 800px;
+  display: flex;  
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("file:///C:/Users/grzet/OneDrive/Documents/github-projects/Titan-Coffee-Run/img/coffee-background.jpg");
+}
+
+#chartContainer {
+  margin: auto;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.product img {
+  height: 200px;
+  width: 200px;
+}

@@ -20,11 +20,10 @@ function drawBar(ctx, upperLeftCornerX, upperLeftCornerY, width, height,color){
 function drawVerticalText(text, x, y, fontSize, ctx) {
 
   ctx.font = `${fontSize}px Arial`;
+  ctx.fillStyle = "white";
 
   for (let i = 0; i < text.length; i++) {
-
     ctx.fillText(text[i], x, y + (i * fontSize)); 
-
   }
 
 }
@@ -106,6 +105,7 @@ class BarChart {
       let width = (canvas.width-20) / 4;
       let paddingBetweenBars = 60;
       ctx.font = "20px Arial";
+      ctx.fillStyle = "white";
       ctx.fillText("Jan-March", paddingBetweenBars + 20, canvas.height - 10);
       ctx.fillText("April-June", width + paddingBetweenBars + 10, canvas.height - 10);
       ctx.fillText("Jul-Sep", width * 2 + paddingBetweenBars, canvas.height - 10);
@@ -154,12 +154,12 @@ class BarChart {
     canvas: chartContainer,
     padding: 40,
     gridScale: 100,
-    gridColor: "black",
+    gridColor: "white",
     data: {
-      "Jan-March": 2005, 
-      "April-June": 1471, 
-      "Jul-Sep": 892, 
-      "Oct-Dec": 531,
+      "Jan-March": 2005.00, 
+      "April-June": 1471.31, 
+      "Jul-Sep": 892.86, 
+      "Oct-Dec": 531.60,
     },
     colors: ["#a55ca5", "#67b6c7", "#bccd7a", "#eb9743"],
   });
