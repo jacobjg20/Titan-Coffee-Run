@@ -85,7 +85,6 @@ class BarChart {
       var values = Object.values(this.options.data);
       for (let val of values) {
         var barHeight = Math.round((canvasActualHeight * val) / this.maxValue);
-        console.log(barHeight);
         
         drawBar(
           this.ctx,

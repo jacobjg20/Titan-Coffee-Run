@@ -9,14 +9,14 @@
   </head>
   <body>
 
-    <nav>
+    <nav id="nav">
       <a href="index.html">Home</a>
       <a href="credit-card.html">Apply for Credit</a>
-      <a href="register.html">register</a>
-      <a href="login.html"></a>
+      <a href="register.html">Register</a>
+      <a href="login.html">Login</a>
     </nav>
 
-    <section class="hero-section">
+    <section class="hero-section product-section">
        <div class="product">
         <div id="productOneName" data-value="Original Blend">Orignal Blend</div>
         <img src="img/productOne.png" alt="bag of lion orignal coffee">
@@ -39,9 +39,9 @@
           <label for="productOneSize">Size:</label>
           <select id="productOneSize" name="productOneSize"><br>
               <option value="selectSize">Select a Size</option>
-              <option value="s">small</option>
-              <option value="m">medium</option>
-              <option value="l">large</option>
+              <option value="small">small</option>
+              <option value="medium">medium</option>
+              <option value="large">large</option>
           </select>
         </div>
           <div id="productOnePrice" data-value="10">$10</div>
@@ -70,9 +70,9 @@
           <label for="productTwoSize">Size:</label>
           <select id="productTwoSize" name="productTwoSize"><br>
               <option value="selectSize">Select a Size</option>
-              <option value="s">small</option>
-              <option value="m">medium</option>
-              <option value="l">large</option>
+              <option value="small">small</option>
+              <option value="medium">medium</option>
+              <option value="large">large</option>
           </select>
         </div>
           <div id="productTwoPrice" data-value="7">$7</div>
@@ -102,9 +102,9 @@
           <label for="productThreeSize">Size:</label>
           <select id="productThreeSize" name="productThreeSize"><br>
               <option value="selectSize">Select a Size</option>
-              <option value="s">small</option>
-              <option value="m">medium</option>
-              <option value="l">large</option>
+              <option value="small">small</option>
+              <option value="medium">medium</option>
+              <option value="large">large</option>
           </select>
         </div>
           <div id="productThreePrice" data-value="15">$15</div>
@@ -113,8 +113,7 @@
 
     </section>
 
-    <input type="button" value="View Order" id="viewOrder">
-
+    <section id="cartDisplay"></section>
 
     <footer>
       <div class="box">
@@ -137,5 +136,6 @@
     <script src="js/utilities.js"></script>
     <script src="js/errorMessage.js"></script>
     <script src="js/cart.js"></script>
+    <script src="js/user-check.js"></script>
   </body>
 </html>

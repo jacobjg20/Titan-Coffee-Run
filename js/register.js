@@ -1,8 +1,15 @@
 function validateRegistration(){
 
+    var tbl = document.createElement('table');
+    tbl.id = 'table';
+    tbl.style.width = '200px';
+    tbl.style.border = '1px solid white';
+
     var email = U.$('email');
     var password = U.$('password');
     var repassword = U.$('repassword');
+    var fields = [email, password, repassword];
+    var isValid = true;
 
     passwordMatch = false;
     passwordValid = false;
@@ -47,15 +54,60 @@ function validateRegistration(){
         passwordMatch = true;
     }
       
-    // Add user to data base
-    if(email && passwordValid && passwordMatch){
+     //removes existing table
+     if(U.$('table')){
+        U.$('table').remove();
+    }
+
+    for (let i = 0; i < fields.length; i++) {
+        const tr = tbl.insertRow();
+        for (let j = 0; j < 2; j++) {
+        if (i === fields.length && j === 1) {
+            break;
+        } else if(j === 1){
+            if(U.$(fields[i].id + "Error"))
+            {
+                const td = tr.insertCell();
+                td.appendChild(document.createTextNode('Invalid'));
+                td.style.border = '1px solid white';
+            } else {
+                const td = tr.insertCell();
+                td.appendChild(document.createTextNode('Valid'));
+                td.style.border = '1px solid white';
+            } 
+        } else {
+            const td = tr.insertCell();
+            td.appendChild(document.createTextNode(fields[i].name));
+            td.style.border = '1px solid white';
+            if (i === 1 && j === 1) {
+            }
+        }
+        }
+    }
+
+    //checks if table has any erros , adds user , redirects to new window
+    for (let i = 0; i < fields.length; i++) {
+        if(U.$(fields[i].id + 'Error')){
+            isValid = false;
+        }
+    }
+    if(isValid) {
         addUser(email.value, password.value);
-    }  
+        window.location.replace("login.html");
+        return;
+    }
+
+    //adds table to the webpage
+    U.$('table-display').appendChild(tbl);
+
 }
 
 function addUser (email, password){
-    localStorage.setItem("username" , email);
-    localStorage.setItem("password", password);
+    let user = {
+        'username': email,
+        'password': password
+    }
+    localStorage.setItem('user', JSON.stringify(user));
 }
 
 U.addEvent(U.$('register'), 'click', validateRegistration);

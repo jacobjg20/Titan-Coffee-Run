@@ -3,9 +3,15 @@
     var password = U.$('password');
     var newPassword = U.$('newPassword')
 
+    var storedUser = JSON.parse(localStorage.getItem('user'));
+    var storedUsername = storedUser.username;
+    var storedPassword = storedUser.password;
+
     //set new password
-    if((username.value == localStorage.getItem('username')) && (password.value == localStorage.getItem('password'))){
-        localStorage.setItem('password', newPassword.value); 
+    if((username.value == storedUsername) && (password.value == storedPassword)){
+        storedUser.password = newPassword.value;
+        localStorage.setItem('user', JSON.stringify(storedUser)); 
+        location.reload();
     } else {
         alert('username and password combination is invalid');
     }

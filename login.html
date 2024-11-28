@@ -9,30 +9,29 @@
   </head>
   <body>
 
-    <nav>
+    <nav id="nav">
       <a href="index.html">Home</a>
       <a href="credit-card.html">Apply for Credit</a>
-      <a href="register.html">register</a>
-      <a href="login.html"></a>
+      <a href="register.html">Register</a>
+      <a href="login.html">Login</a>
     </nav>
 
     <section class="hero-section">
-        <form action="#" method="post" id="theForm">
-            <div class="row">
-              <label for="email">Email Address:</label>
-              <input type="email" id="email" name="email" value="">
-            </div>
-            <div class="row">
-              <label for="password">Enter a password:</label>
-              <input type="text" id="password" name="password" value="">
-            </div>
-            <input type="button" value="login" id="login">
-          </form>
-    </section>
-
-    <div class="resetLink"><a href="passwordReset.html">Password Reset</a>
-    </div>
-
+      <form action="#" method="post" id="theForm">
+          <div class="row">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" value="">
+          </div>
+          <div class="row">
+            <label for="password">Enter a password:</label>
+            <input type="text" id="password" name="password" value="">
+          </div>
+          <input type="button" value="Login" id="login">
+          <div class="row">
+          <a id = "passwordReset" href="passwordReset.html">Password Reset</a>
+          </div>
+        </form>
+      </section>
 
     <footer>
       <div class="box">
@@ -55,5 +54,6 @@
     <script src="js/utilities.js"></script>
     <script src="js/errorMessage.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/user-check.js"></script>
   </body>
 </html>

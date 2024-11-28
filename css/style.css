@@ -130,8 +130,10 @@ form {
 /* Sales Section */
 
 .sales-section{
-  height: 800px;
-  display: flex;  
+  height: 850px;
+  display: flex; 
+  padding-bottom: 2rem;
+  flex-direction: column; 
   align-items: center;
   background-position: center;
   background-repeat: no-repeat;
@@ -158,6 +160,11 @@ form {
   margin: auto;
 }
 
+.menu h1{
+  align-items: center;
+  margin: auto;
+}
+
 /* table display */
 
 #table-display{
@@ -168,4 +175,28 @@ form {
 #table{
   margin: auto;
   color: white;
+}
+
+#passwordReset{
+    border: 1px outset  border;
+    border-radius: 3px;
+    color: buttontext;
+    background-color: buttonface;
+    text-decoration: none;
+}
+
+#cartDisplay {
+  background-color: rgb(65, 39, 39);
+  color: white;
+  min-height: 200px;
+}
+
+#cartDisplay img{
+  height: 200px;
+  width: 200px;
+}
+
+.product-section{
+  display: flex;
+  justify-content: space-around;
 }
