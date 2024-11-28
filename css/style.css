@@ -187,8 +187,13 @@ form {
 
 #cartDisplay {
   background-color: rgb(65, 39, 39);
-  color: white;
+  color: black;
   min-height: 200px;
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  padding: 2rem;
+  width: 100%;
 }
 
 #cartDisplay img{
@@ -196,7 +201,26 @@ form {
   width: 200px;
 }
 
+#cartDisplay div{
+  padding: 3rem;
+}
+
 .product-section{
+  display: flex;
+  justify-content: space-around;
+}
+
+.checkout-section{
+  background-color: #ffffff;
+  width: 800px;
+  height: 500px;
+}
+
+.cart {
+  padding: 3rem;
+  margin: auto;
+  background-color: rgba(148, 148, 148, 0.678); 
+  width: 600px;
   display: flex;
   justify-content: space-around;
 }

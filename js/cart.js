@@ -29,25 +29,43 @@ class Cart{
        localStorage.setItem('cart', JSON.stringify(tempCart));
     }
 
-    static displayOrder(order, id){
+    static displayCurrentOrder(order, id){
         let destination = U.$(id);
 
-        // While the div has at least one child
+        // Removes an existing child from destination
         while (destination.firstChild) {
-          // Remove the first child
           destination.removeChild(destination.firstChild);
         }
 
         let div = document.createElement("div");
         let img = document.createElement('img');
         img.src = order.product.img;
-        div.appendChild(img);
-        div.innerHTML += order.quantity + ' ' + order.size + ' bags of ' +order.product.name + ' have been added to your shopping cart!';
+        div.innerHTML = order.quantity + ' ' + order.size + ' bags of ' +order.product.name + ' have been added to your shopping cart!';
         destination.appendChild(div);
+        destination.appendChild(img);
     }
 
-    static displayCart(){
-        console.log(JSON.parse(localStorage.getItem('cart')));
+    static displayCart(id,divClass){
+        let destination = U.$(id);
+        let total = 0; 
+
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        let div = document.createElement("div");
+        div.classList.add(divClass);
+        for(const key in cart){
+            total += cart[key].product.price * cart[key].quantity;
+            div.innerHTML += cart[key].quantity + ' ';
+            div.innerHTML += cart[key].size + ' ';
+            div.innerHTML += cart[key].product.name + ' ';
+            div.innerHTML += ' coffee bags for $';
+            div.innerHTML += cart[key].product.price + ' ';
+            div.innerHTML += ' each ';
+            div.innerHTML += cart[key].date + ' ';
+            div.innerHTML += '<br>';
+        }
+
+        div.innerHTML += 'Your Total for today is: $' + total;
+        destination.appendChild(div)
     }
 }
 
@@ -100,7 +118,7 @@ function validateOrder(id){
     if(isQuantity && isSize){
         let order = new Order(product, size.value, quantity.value);
         Cart.addOrder(order);
-        Cart.displayOrder(order, 'cartDisplay');
+        Cart.displayCurrentOrder(order, 'cartDisplay');
     }
 }
 

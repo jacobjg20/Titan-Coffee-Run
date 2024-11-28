@@ -1,0 +1,1 @@
+Cart.displayCart('cartDisplay', 'cart');
